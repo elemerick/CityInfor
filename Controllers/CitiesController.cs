@@ -27,6 +27,7 @@ namespace CityInfor.API.Controllers
             int pageNumber = 1,
             int pageSize = 10)
         {
+
             if (pageSize > maxCitiesPageSize) pageSize = maxCitiesPageSize;
             var (cities, paginationMetadata) = await _repo.GetCitiesAsync(name, searchQuery, pageNumber, pageSize);
             var records = _mapper.Map<IEnumerable<CityWithoutPointOfInterestsDto>>(cities);
